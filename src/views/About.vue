@@ -3,12 +3,16 @@ import VueMultiselect from "vue-multiselect";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
+import "v-calendar/dist/style.css";
+import { Calendar, DatePicker } from "v-calendar";
+
 export default {
-  components: { VueMultiselect, Carousel, Slide, Pagination, Navigation },
+  components: { Calendar, DatePicker, VueMultiselect, Carousel, Slide, Pagination, Navigation },
   data() {
     return {
       selected: null,
       options: ["list", "of", "options"],
+      date: new Date(),
     };
   },
 };
@@ -17,6 +21,14 @@ export default {
 <template>
   <div class="about">
     <h1>This is an about page</h1>
+
+    <h2>Example calendar</h2>
+    <Calendar />
+
+    <h2>Example datepicker</h2>
+    <DatePicker v-model="date"></DatePicker>
+    <p>You selected {{ date }}</p>
+
     <h2>Example carousel</h2>
     <Carousel>
       <Slide v-for="slide in 10" :key="slide">
