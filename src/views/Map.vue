@@ -13,7 +13,11 @@ export default {
 
     console.log(map);
 
-    const marker1 = new mapboxgl.Marker().setLngLat([-87.6298, 41.8781]).addTo(map);
+    const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+      "Construction on the Washington Monument began in 1848."
+    );
+
+    const marker1 = new mapboxgl.Marker().setLngLat([-87.6298, 41.8781]).setPopup(popup).addTo(map);
     console.log(marker1);
   },
 };
