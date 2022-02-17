@@ -12,6 +12,9 @@ export default {
     });
 
     console.log(map);
+
+    const marker1 = new mapboxgl.Marker().setLngLat([-87.6298, 41.8781]).addTo(map);
+    console.log(marker1);
   },
 };
 </script>
