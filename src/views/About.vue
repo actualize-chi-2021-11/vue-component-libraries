@@ -13,6 +13,10 @@ export default {
       selected: null,
       options: ["list", "of", "options"],
       date: new Date(),
+      images: [
+        "https://ichef.bbci.co.uk/news/999/cpsprodpb/15951/production/_117310488_16.jpg",
+        "https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=",
+      ],
     };
   },
 };
@@ -31,8 +35,10 @@ export default {
 
     <h2>Example carousel</h2>
     <Carousel>
-      <Slide v-for="slide in 10" :key="slide">
-        <div class="carousel__item">{{ slide }}</div>
+      <Slide v-for="image in images" :key="image">
+        <div class="carousel__item">
+          <img :src="image" alt="" />
+        </div>
       </Slide>
 
       <template #addons>
@@ -67,7 +73,7 @@ export default {
 <style src="vue-multiselect/dist/vue-multiselect.css"></style>
 <style>
 .carousel__item {
-  min-height: 200px;
+  height: 200px;
   width: 100%;
   background-color: var(--vc-clr-primary);
   color: var(--vc-clr-white);
@@ -76,6 +82,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.carousel__item img {
+  width: 100%;
 }
 
 .carousel__slide {
